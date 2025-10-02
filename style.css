@@ -172,6 +172,21 @@ h1{
     color: #8e00e0;
 }
 
+.botao{
+    font-size: 0.9rem;
+    width: 130px;
+    border-radius: 20px;
+    border: #f8e80b;
+    color: #000;
+    background-color: #f8e80b;
+    cursor: pointer;
+}
+
+.botao:hover{
+    background-color: #ecc900;
+    transition: transform 0.3s, background 0.3s;
+}
+
 .livro.lido::after{
     content: "✔ Lido";
     position: absolute;
@@ -206,4 +221,63 @@ h1{
     padding: 2px 6px;
     font-size: 0.7rem;
     border-radius: 4px;
+}
+
+.livro.em-oferta::after{
+    content: "50% off";
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #e74c3c;
+    color: #fff;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    border-radius: 4px;
+}
+
+.notificacoes{
+  background: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.notificacao{
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.notificacao:hover{
+  transform: translateX(5px);
+}
+
+.notificacao.sucesso{
+    background-color: #d4edda;
+    color: #155724;
+}
+.notificacao.info{
+    background-color: #cce5ff;
+    color: #004085;
+}
+.notificacao.alerta{
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.notificacao:last-child{
+    margin-bottom: 0;
+}
+
+@media(max-width: 600px){
+    body{flex-direction: column;}
+    aside{
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 5px;
+    }
+    .cards{flex-direction: column;}
 }
