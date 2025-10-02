@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Livraria</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside>
+        <h2>Menu</h2>
+        <a href="#" class="active">🏠 Dashboard</a>
+        <a href="#">👤 Meu Perfil</a>
+        <a href="#">🛒 Meus Pedidos</a>
+        <a href="#">💖 Lista de Desejos</a>
+    </aside>
+
+    <main>
+        <h1>Bem-vindo à sua Dashboard</h1>
+        <section class="cards">
+            <div class="card">
+                <h3>Livros lidos no mês</h3>
+                <p>5/10</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 50%;"></div>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Próximo lnçamento favorito</h3>
+                <p>"Mate (Bride Vol.2)" - 04/11</p>
+            </div>
+            <div class="card">
+                <h3>Meta de leitura anual</h3>
+                <p>40/100</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 40%;"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="grafico">
+            <h2>Livros por categoria</h2>
+            <div class="barra-grafico">
+                <span>Suspense</span>
+                <div class="barra">
+                    <div class="barra-preenchida" style="width: 60%;"></div>
+                </div>
+            </div>
+            <div class="barra-grafico">
+                <span>Romance</span>
+                <div class="barra">
+                    <div class="barra-preenchida" style="width: 40%;"></div>
+                </div>
+            </div>
+            <div class="barra-grafico">
+                <span>Fantasia</span>
+                <div class="barra">
+                    <div class="barra-preenchida" style="width: 80%;"></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Últimos Livros Lidos</h2>
+            <div class="livros">
+                <div class="livro lido">
+                    <img src="IMG/livro1.jpeg" alt="">
+                    <h4>"A Lâmina da Assassina"<br>Sarah J. Maas</h4>
+                </div>
+                <div class="livro em-progresso">
+                    <img src="IMG/livro3.jpeg" alt="">
+                    <h4>"Morte na Praia"<br>Agatha Christie</h4>
+                </div>
+                <div class="livro favorito">
+                    <img src="IMG/livro2.jpeg" alt="">
+                    <h4>"No Fundo é Amor"<br>Ali Hazelwood</h4>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
