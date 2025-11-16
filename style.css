@@ -348,6 +348,14 @@ h1{
     }
 }
 
+@media(min-width: 800px){
+    #sidebar {
+        position: relative;
+        left: 0;
+        height: auto;
+    }
+}
+
 @media screen and (min-width: 800px){
     .menu-btn{
         display: block;
