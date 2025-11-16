@@ -17,27 +17,13 @@ window.addEventListener("load", () => {
     document.querySelectorAll(".progress").forEach(barra => {
         const largura = barra.style.width;
         barra.style.width = "0";
-        setTimeout(() => {
-            barra.style.width = largura;
-        }, 200);
+        setTimeout(() => barra.style.width = largura, 200);
     });
 
     document.querySelectorAll(".barra-preenchida").forEach(b => {
         const w = b.style.width;
         b.style.width = "0";
-        setTimeout(() => {
-            b.style.width = w;
-        }, 300);
-    });
-});
-
-document.querySelectorAll(".botao").forEach(btn => {
-    btn.addEventListener("click", () => {
-        btn.textContent = "Adicionado ✔";
-        btn.style.background = "#1abc9c";
-        btn.style.color = "#fff";
-        btn.style.transform = "scale(1.1)";
-        setTimeout(() => btn.style.transform = "scale(1)", 150);
+        setTimeout(() => b.style.width = w, 300);
     });
 });
 
@@ -49,38 +35,20 @@ darkBtn.addEventListener("click", () => {
     darkBtn.textContent = body.classList.contains("dark-mode") ? "☀️" : "🌙";
 });
 
-const cartList = document.getElementById("cartList");
-const addButtons = document.querySelectorAll(".add-to-cart");
-
-let carrinho = [];
-
-addButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-        const title = btn.getAttribute("data-title");
-        carrinho.push(title);
-        atualizarCarrinho();
-    });
-});
-
-function atualizarCarrinho() {
-    cartList.innerHTML = "";
-    carrinho.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        cartList.appendChild(li);
-    });
-}
-
+const pedidos = [];
 const listaPedidos = document.getElementById("listaPedidos");
 const botaoPedidos = document.getElementById("btnPedidos");
-
-let pedidos = [];
 
 document.querySelectorAll(".add-to-cart").forEach(botao => {
     botao.addEventListener("click", () => {
         const titulo = botao.getAttribute("data-title");
+
         pedidos.push(titulo);
         atualizarPedidos();
+
+        botao.textContent = "Adicionado ✔";
+        botao.style.background = "#1abc9c";
+        botao.style.color = "white";
     });
 });
 
@@ -95,6 +63,10 @@ function atualizarPedidos() {
 }
 
 botaoPedidos.addEventListener("click", () => {
-    document.getElementById("meus-pedidos").style.display = "block";
-    window.scrollTo(0, document.getElementById("meus-pedidos").offsetTop);
+    const secao = document.getElementById("meus-pedidos");
+    secao.style.display = "block";
+    window.scrollTo({
+        top: secao.offsetTop,
+        behavior: "smooth"
+    });
 });
