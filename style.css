@@ -66,9 +66,9 @@ h1{
 }
 
 .card{
-    background: linear-gradient(145deg, #fff, #e0f7fa);
+    background: linear-gradient(145deg, #ffffff, #e0f7fa);
     padding: 20px;
-    flex: 1 1 200px;
+    flex: 1 1 250px;
     border-radius: 12px;
     box-shadow: 0 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
@@ -140,7 +140,7 @@ h1{
 
 .livros{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 15px;
 }
 
@@ -160,8 +160,8 @@ h1{
 }
 
 .livro img{
-    width: 80px;
-    height: 110px;
+    width: 100px;
+    height: 140px;
     object-fit: cover;
     border-radius: 4px;
     margin-bottom: 8px;
@@ -180,6 +180,7 @@ h1{
     color: #000;
     background-color: #f8e80b;
     cursor: pointer;
+    padding: 5px 8px;
 }
 
 .botao:hover{
@@ -187,23 +188,32 @@ h1{
     transition: transform 0.3s, background 0.3s;
 }
 
-.livro.lido::after,
-.livro.em-progresso::after,
-.livro.favorito::after,
-.livro.em-oferta::after{
+.livro::after{
     position: absolute;
     top: 8px;
     right: 8px;
-    color: #fff;
     padding: 2px 6px;
     font-size: 0.7rem;
+    color: #fff;
     border-radius: 4px;
 }
 
-.livro.lido::after{ content: "✔ Lido"; background: #1abc9c; }
-.livro.em-progresso::after{ content: "⏳ Em progresso"; background: #f39c12; }
-.livro.favorito::after{ content: "❤️ Favorito"; background: #e74c3c; }
-.livro.em-oferta::after{ content: "50% off"; background: #e74c3c; }
+.livro.lido::after{
+    content: "✔ Lido";
+    background: #1abc9c;
+}
+.livro.em-progresso::after{
+    content: "⏳ Em progresso";
+    background: #f39c12;
+}
+.livro.favorito::after{
+    content: "❤️ Favorito";
+    background: #e74c3c;
+}
+.livro.em-oferta::after{
+    content: "50% off";
+    background: #e74c3c;
+}
 
 .notificacoes{
     background: #fff;
@@ -220,13 +230,22 @@ h1{
     transition: transform 0.3s, background 0.3s;
 }
 
-.notificacao:hover{ transform: translateX(5px); }
+.notificacao:hover{
+    transform: translateX(5px);
+}
 
-.notificacao.sucesso{ background-color: #d4edda; color: #155724; }
-.notificacao.info{ background-color: #cce5ff; color: #004085; }
-.notificacao.alerta{ background-color: #f8d7da; color: #721c24; }
-
-.notificacao:last-child{ margin-bottom: 0; }
+.notificacao.sucesso{
+    background-color: #d4edda;
+    color: #155724;
+}
+.notificacao.info{
+    background-color: #cce5ff;
+    color: #004085;
+}
+.notificacao.alerta{
+    background-color: #f8d7da;
+    color: #721c24;
+}
 
 .menu-btn{
     display: none;
@@ -263,7 +282,9 @@ h1{
     color: #fff;
 }
 
-.dark-mode aside{ background: #3b0066; }
+.dark-mode aside{
+    background: #3b0066;
+}
 
 .dark-mode .card,
 .dark-mode .grafico,
@@ -273,10 +294,11 @@ h1{
     color: #fff;
 }
 
-@media(max-width: 600px){
+@media(max-width: 480px){
 
     body{
         flex-direction: column;
+        padding-top: 60px;
     }
 
     .menu-btn,
@@ -285,68 +307,77 @@ h1{
     }
 
     aside{
+        width: 70%;
+        max-width: 250px;
         position: fixed;
         top: 0;
         left: -100%;
         height: 100%;
-        width: 220px;
-        flex-direction: column;
         padding-top: 60px;
+        flex-direction: column;
+        gap: 12px;
+        transition: 0.3s;
+        z-index: 999;
     }
 
-    aside.ativo{
+    #sidebar.ativo{
         left: 0;
+    }
+
+    aside a{
+        font-size: 1rem;
+        padding: 12px;
+    }
+
+    main{
+        padding: 12px;
+    }
+
+    h1{
+        font-size: 1.4rem;
+        text-align: center;
     }
 
     .cards{
         flex-direction: column;
+        gap: 15px;
+    }
+
+    .card{
+        width: 100%;
+        padding: 15px;
+    }
+
+    .livros{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .livro img{
+        width: 90px;
+        height: 120px;
+    }
+
+    .botao{
+        width: 100px;
+        font-size: 0.75rem;
+        padding: 5px;
+    }
+}
+
+@media(min-width: 480px) and (max-width: 800px){
+    aside{
+        width: 180px;
     }
 }
 
 @media(min-width: 800px){
+    .menu-btn,
+    .dark-btn{
+        display: none;
+    }
+
     aside{
         position: relative;
         left: 0;
-        height: auto;
     }
-
-    .menu-btn{
-        display: block;
-    }
-}
-
-#meus-pedidos{
-    background: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    margin-top: 15px;
-}
-
-#meus-pedidos h2{
-    color: #8e00e0;
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-}
-
-#listaPedidos{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-#listaPedidos li{
-    padding: 12px;
-    margin-bottom: 10px;
-    background: #f8e80b;
-    color: #000;
-    border-radius: 8px;
-    font-weight: bold;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-    transition: transform 0.2s;
-}
-
-#listaPedidos li:hover{
-    transform: translateX(4px);
-    background: #ecc900;
 }
