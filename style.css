@@ -187,100 +187,46 @@ h1{
     transition: transform 0.3s, background 0.3s;
 }
 
-.livro.lido::after{
-    content: "✔ Lido";
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    background: #1abc9c;
-    color: #fff;
-    padding: 2px 6px;
-    font-size: 0.7rem;
-    border-radius: 4px;
-}
-
-.livro.em-progresso::after{
-    content: "⏳ Em progresso";
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    background: #f39c12;
-    color: #fff;
-    padding: 2px 6px;
-    font-size: 0.7rem;
-    border-radius: 4px;
-}
-
-.livro.favorito::after{
-    content: "❤️ Favorito";
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    background: #e74c3c;
-    color: #fff;
-    padding: 2px 6px;
-    font-size: 0.7rem;
-    border-radius: 4px;
-}
-
+.livro.lido::after,
+.livro.em-progresso::after,
+.livro.favorito::after,
 .livro.em-oferta::after{
-    content: "50% off";
     position: absolute;
     top: 8px;
     right: 8px;
-    background: #e74c3c;
     color: #fff;
     padding: 2px 6px;
     font-size: 0.7rem;
     border-radius: 4px;
 }
+
+.livro.lido::after{ content: "✔ Lido"; background: #1abc9c; }
+.livro.em-progresso::after{ content: "⏳ Em progresso"; background: #f39c12; }
+.livro.favorito::after{ content: "❤️ Favorito"; background: #e74c3c; }
+.livro.em-oferta::after{ content: "50% off"; background: #e74c3c; }
 
 .notificacoes{
-  background: #fff;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .notificacao{
-  padding: 12px;
-  border-radius: 6px;
-  margin-bottom: 10px;
-  font-weight: bold;
-  transition: transform 0.3s, background 0.3s;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    transition: transform 0.3s, background 0.3s;
 }
 
-.notificacao:hover{
-  transform: translateX(5px);
-}
+.notificacao:hover{ transform: translateX(5px); }
 
-.notificacao.sucesso{
-    background-color: #d4edda;
-    color: #155724;
-}
-.notificacao.info{
-    background-color: #cce5ff;
-    color: #004085;
-}
-.notificacao.alerta{
-    background-color: #f8d7da;
-    color: #721c24;
-}
+.notificacao.sucesso{ background-color: #d4edda; color: #155724; }
+.notificacao.info{ background-color: #cce5ff; color: #004085; }
+.notificacao.alerta{ background-color: #f8d7da; color: #721c24; }
 
-.notificacao:last-child{
-    margin-bottom: 0;
-}
-
-@media(max-width: 600px){
-    body{flex-direction: column;}
-    aside{
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-around;
-        gap: 5px;
-    }
-    .cards{flex-direction: column;}
-}
+.notificacao:last-child{ margin-bottom: 0; }
 
 .menu-btn{
     display: none;
@@ -317,9 +263,7 @@ h1{
     color: #fff;
 }
 
-.dark-mode aside{
-    background: #3b0066;
-}
+.dark-mode aside{ background: #3b0066; }
 
 .dark-mode .card,
 .dark-mode .grafico,
@@ -330,33 +274,42 @@ h1{
 }
 
 @media(max-width: 600px){
-    .menu-btn{
-        display: block;
+
+    body{
+        flex-direction: column;
     }
+
+    .menu-btn,
     .dark-btn{
         display: block;
     }
-    #sidebar{
+
+    aside{
         position: fixed;
         top: 0;
         left: -100%;
         height: 100%;
-        transition: 0.3s;
+        width: 220px;
+        flex-direction: column;
+        padding-top: 60px;
     }
-    #sidebar.ativo{
+
+    aside.ativo{
         left: 0;
+    }
+
+    .cards{
+        flex-direction: column;
     }
 }
 
 @media(min-width: 800px){
-    #sidebar {
+    aside{
         position: relative;
         left: 0;
         height: auto;
     }
-}
 
-@media screen and (min-width: 800px){
     .menu-btn{
         display: block;
     }
