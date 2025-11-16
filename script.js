@@ -48,3 +48,25 @@ darkBtn.addEventListener("click", () => {
     body.classList.toggle("dark-mode");
     darkBtn.textContent = body.classList.contains("dark-mode") ? "☀️" : "🌙";
 });
+
+const cartList = document.getElementById("cartList");
+const addButtons = document.querySelectorAll(".add-to-cart");
+
+let carrinho = [];
+
+addButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const title = btn.getAttribute("data-title");
+        carrinho.push(title);
+        atualizarCarrinho();
+    });
+});
+
+function atualizarCarrinho() {
+    cartList.innerHTML = "";
+    carrinho.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        cartList.appendChild(li);
+    });
+}
