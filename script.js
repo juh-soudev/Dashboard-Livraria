@@ -70,3 +70,31 @@ function atualizarCarrinho() {
         cartList.appendChild(li);
     });
 }
+
+const listaPedidos = document.getElementById("listaPedidos");
+const botaoPedidos = document.getElementById("btnPedidos");
+
+let pedidos = [];
+
+document.querySelectorAll(".add-to-cart").forEach(botao => {
+    botao.addEventListener("click", () => {
+        const titulo = botao.getAttribute("data-title");
+        pedidos.push(titulo);
+        atualizarPedidos();
+    });
+});
+
+function atualizarPedidos() {
+    listaPedidos.innerHTML = "";
+
+    pedidos.forEach(titulo => {
+        const li = document.createElement("li");
+        li.textContent = titulo;
+        listaPedidos.appendChild(li);
+    });
+}
+
+botaoPedidos.addEventListener("click", () => {
+    document.getElementById("meus-pedidos").style.display = "block";
+    window.scrollTo(0, document.getElementById("meus-pedidos").offsetTop);
+});
